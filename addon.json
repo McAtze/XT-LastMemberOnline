@@ -1,0 +1,25 @@
+{
+    "legacy_addon_id": "",
+    "title": "[XT] Last Member Online",
+    "description": "This add-on gives you the opportunity to show how many members where online in the last x hours within a widget.",
+    "version_id": 1000070,
+    "version_string": "1.0.0",
+    "dev": "McAtze",
+    "dev_url": "https://www.xendach.de/members/mcatze.205/",
+    "faq_url": "",
+    "support_url": "https://www.xendach.de/resources/xt-last-member-online.464/",
+    "extra_urls": {
+        "Github": "https://github.com/McAtze/XT-LastMemberOnline"
+    },
+    "require": {
+        "XF": [
+            2020070,
+            "XenForo 2.2.0+"
+        ],
+        "php": [
+            "8.0.0",
+            "PHP 8.0.0+"
+        ]
+    },
+    "icon": "fa-hourglass"
+}

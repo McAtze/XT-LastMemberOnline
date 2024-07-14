@@ -1,0 +1,1 @@
+{count} users online in the last {time}

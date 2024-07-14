@@ -1,0 +1,17 @@
+{
+    "admin/widget_def_options_xt_lmo_widget.html": {
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "66296f6956efb7f07f082b27e415ab43"
+    },
+    "public/xt_lmo_widget.html": {
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "34f50845323a63e9df8e0d7d60485652"
+    },
+    "public/xt_lmo_widget.less": {
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+}

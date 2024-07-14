@@ -1,0 +1,38 @@
+{
+    "widget_def.xt_lmo_widget.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2e8c980834ae740d917a1079228fc6a9"
+    },
+    "widget_def_desc.xt_lmo_widget.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "83b0bbfcce41da1f7bda6473b3e2baa0"
+    },
+    "xt_lmo_no_members_online_x.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "cc92aa678a432ed9802a4bd0de1b40ed"
+    },
+    "xt_lmo_time.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2db25e6988d60ca9a14a932daceecd21"
+    },
+    "xt_lmo_usercount.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "847ea6b488cf0321e2e7ac7bf3cbc381"
+    },
+    "xt_lmo_usercount_x_in_y.txt": {
+        "global_cache": false,
+        "version_id": 100010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "5860472a2a9ff36f11344effc7c5ddf5"
+    }
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="widget_def_options_xt_lmo_widget" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[xt_lmo_time]" value="{$options.xt_lmo_time}" min="1"
+                 label="{{ phrase('xt_lmo_time') }}" units="{{ phrase('units_hours') }}" />
+
+<xf:numberboxrow name="options[xt_lmo_limit]" value="{$options.xt_lmo_limit}" min="10"
+                 label="{{ phrase('maximum_usernames') }}"
+                 explain="{{ phrase('maximum_usernames_explain') }}" />
+
+<xf:checkboxrow>
+    <xf:option name="options[xt_lmo_usercount]" value="1" selected="{$options.xt_lmo_usercount}"
+               label="{{ phrase('xt_lmo_usercount') }}" />
+</xf:checkboxrow>
+
+<xf:radiorow name="options[xt_lmo_sort]" value="{{ $options.xt_lmo_sort ?: 'last_activity' }}"
+             label="{{ phrase('order_by') }}">
+
+    <xf:option value="user_id"
+               label="{{ phrase('user_id') }}" />
+    <xf:option value="username"
+               label="{{ phrase('username') }}" />
+    <xf:option value="register_date"
+               label="{{ phrase('register_date') }}" />
+    <xf:option value="last_activity"
+               label="{{ phrase('last_activity') }}" />
+</xf:radiorow>
+
+<xf:radiorow name="options[xt_lmo_order]" value="{{ $options.xt_lmo_order ?: 'DESC' }}"
+             label="{{ phrase('sort_by') }}">
+
+    <xf:option value="DESC"
+               label="{{ phrase('descending') }}" />
+    <xf:option value="ASC"
+               label="{{ phrase('ascending') }}" />
+</xf:radiorow>]]></template>
+  <template type="public" title="xt_lmo_widget" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[<xf:css src="at_lmo_widget.less"  />
+
+<div class="block"{{ widget_data($widget) }}>
+    <div class="block-container">
+        <h3 class="block-minorHeader">{{ $title }}</h3>
+        <div class="block-body block-row">
+            <xf:if is="$outputUsers is not empty">
+                <ul class="listInline listInline--comma">
+                    <xf:foreach loop="$outputUsers" value="$user"><xf:trim>
+                        <li><xf:username user="$user" rich="true" class="{{ !$user.visible ? 'username--invisible' : '' }}" /></li>
+                    </xf:trim></xf:foreach>
+                </ul>
+                <ul class="listInline">
+                    <xf:if is="$xt_lmo_usercounted_more >= 0">
+                        {{ phrase('ellipsis_and_x_more', {'count': $xt_lmo_usercounted_more}) }}
+                    </xf:if>
+                </ul>
+                <xf:else />
+                {{ phrase('xt_lmo_no_members_online_x', {'time': $options.xt_lmo_time}) }}
+            </xf:if>
+        </div>
+        <xf:if is="$options.xt_lmo_usercount">
+            <div class="block-footer">
+				<span class="block-footer-counter">{{ phrase('xt_lmo_usercount_x_in_y',{
+				'count': $xt_lmo_usercounted,
+				'time': $options.xt_lmo_time}) }}</span>
+            </div>
+        </xf:if>
+    </div>
+</div>]]></template>
+  <template type="public" title="xt_lmo_widget.less" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[]]></template>
+</templates>

@@ -1,0 +1,35 @@
+<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[xt_lmo_time]" value="{$options.xt_lmo_time}" min="1"
+                 label="{{ phrase('xt_lmo_time') }}" units="{{ phrase('units_hours') }}" />
+
+<xf:numberboxrow name="options[xt_lmo_limit]" value="{$options.xt_lmo_limit}" min="10"
+                 label="{{ phrase('maximum_usernames') }}"
+                 explain="{{ phrase('maximum_usernames_explain') }}" />
+
+<xf:checkboxrow>
+    <xf:option name="options[xt_lmo_usercount]" value="1" selected="{$options.xt_lmo_usercount}"
+               label="{{ phrase('xt_lmo_usercount') }}" />
+</xf:checkboxrow>
+
+<xf:radiorow name="options[xt_lmo_sort]" value="{{ $options.xt_lmo_sort ?: 'last_activity' }}"
+             label="{{ phrase('order_by') }}">
+
+    <xf:option value="user_id"
+               label="{{ phrase('user_id') }}" />
+    <xf:option value="username"
+               label="{{ phrase('username') }}" />
+    <xf:option value="register_date"
+               label="{{ phrase('register_date') }}" />
+    <xf:option value="last_activity"
+               label="{{ phrase('last_activity') }}" />
+</xf:radiorow>
+
+<xf:radiorow name="options[xt_lmo_order]" value="{{ $options.xt_lmo_order ?: 'DESC' }}"
+             label="{{ phrase('sort_by') }}">
+
+    <xf:option value="DESC"
+               label="{{ phrase('descending') }}" />
+    <xf:option value="ASC"
+               label="{{ phrase('ascending') }}" />
+</xf:radiorow>

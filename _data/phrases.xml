@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="widget_def.xt_lmo_widget" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[XT: LastMemberOnline]]></phrase>
+  <phrase title="widget_def_desc.xt_lmo_widget" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[Displays a bunch of members who are online at the last 24h.]]></phrase>
+  <phrase title="xt_lmo_no_members_online_x" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[There was no one online in the last {time}h]]></phrase>
+  <phrase title="xt_lmo_time" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[Online in the last]]></phrase>
+  <phrase title="xt_lmo_usercount" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[Activate usercount]]></phrase>
+  <phrase title="xt_lmo_usercount_x_in_y" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[{count} users online in the last {time}]]></phrase>
+</phrases>

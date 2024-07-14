@@ -1,0 +1,30 @@
+<xf:css src="at_lmo_widget.less"  />
+
+<div class="block"{{ widget_data($widget) }}>
+    <div class="block-container">
+        <h3 class="block-minorHeader">{{ $title }}</h3>
+        <div class="block-body block-row">
+            <xf:if is="$outputUsers is not empty">
+                <ul class="listInline listInline--comma">
+                    <xf:foreach loop="$outputUsers" value="$user"><xf:trim>
+                        <li><xf:username user="$user" rich="true" class="{{ !$user.visible ? 'username--invisible' : '' }}" /></li>
+                    </xf:trim></xf:foreach>
+                </ul>
+                <ul class="listInline">
+                    <xf:if is="$xt_lmo_usercounted_more >= 0">
+                        {{ phrase('ellipsis_and_x_more', {'count': $xt_lmo_usercounted_more}) }}
+                    </xf:if>
+                </ul>
+                <xf:else />
+                {{ phrase('xt_lmo_no_members_online_x', {'time': $options.xt_lmo_time}) }}
+            </xf:if>
+        </div>
+        <xf:if is="$options.xt_lmo_usercount">
+            <div class="block-footer">
+				<span class="block-footer-counter">{{ phrase('xt_lmo_usercount_x_in_y',{
+				'count': $xt_lmo_usercounted,
+				'time': $options.xt_lmo_time}) }}</span>
+            </div>
+        </xf:if>
+    </div>
+</div>
