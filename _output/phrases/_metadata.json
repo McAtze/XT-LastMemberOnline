@@ -34,5 +34,35 @@
         "version_id": 100010,
         "version_string": "1.0.0 Alpha",
         "hash": "5860472a2a9ff36f11344effc7c5ddf5"
+    },
+    "xt_lmo_widget_display_avatar_explain.txt": {
+        "global_cache": true,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "53674568c68ed09a052bbe99e28c3ced"
+    },
+    "xt_lmo_widget_display_username_explain.txt": {
+        "global_cache": true,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "43353099632ababa5690e82c54a04ea3"
+    },
+    "xt_lmo_widget_max_usernames_explain.txt": {
+        "global_cache": true,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "8ec18c59e9b894d3d559e7ef31949d62"
+    },
+    "xt_lmo_widget_time_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "c24dd3b4362edc694bb5c78ec80b88d3"
+    },
+    "xt_lmo_widget_usercount_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "649a37b191e3bc37b26e2797eee8fbdb"
     }
 }

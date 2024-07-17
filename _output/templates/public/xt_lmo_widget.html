@@ -4,26 +4,38 @@
     <div class="block-container">
         <h3 class="block-minorHeader">{{ $title }}</h3>
         <div class="block-body block-row">
-            <xf:if is="$outputUsers is not empty">
-                <ul class="listInline listInline--comma">
-                    <xf:foreach loop="$outputUsers" value="$user"><xf:trim>
-                        <li><xf:username user="$user" rich="true" class="{{ !$user.visible ? 'username--invisible' : '' }}" /></li>
-                    </xf:trim></xf:foreach>
-                </ul>
+            <xf:if is="$users is not empty">
+				<xf:if is="$style == 'name'">
+					<ul class="listInline listInline--comma">
+						<xf:foreach loop="$users" value="$user">
+							<xf:trim>
+								<li><xf:username user="$user" rich="true" class="{{ !$user.visible ? 'username--invisible' : '' }}" /></li>
+							</xf:trim>
+						</xf:foreach>
+					</ul>
+					<xf:elseif is="$style == 'avatar'" />
+					<ul class="listHeap">
+						<xf:foreach loop="$users" value="$user">
+							<li>
+								<xf:avatar user="$user" size="xs" img="true" />
+							</li>
+						</xf:foreach>
+					</ul>
+				</xf:if>
                 <ul class="listInline">
-                    <xf:if is="$xt_lmo_usercounted_more >= 0">
-                        {{ phrase('ellipsis_and_x_more', {'count': $xt_lmo_usercounted_more}) }}
+                    <xf:if is="$usercounted_more >= 0">
+                        {{ phrase('ellipsis_and_x_more', {'count': $usercounted_more}) }}
                     </xf:if>
                 </ul>
-                <xf:else />
-                {{ phrase('xt_lmo_no_members_online_x', {'time': $options.xt_lmo_time}) }}
+			<xf:else />
+                {{ phrase('xt_lmo_no_members_online_x', {'time': $options.time}) }}
             </xf:if>
         </div>
-        <xf:if is="$options.xt_lmo_usercount">
+        <xf:if is="$options.usercount">
             <div class="block-footer">
 				<span class="block-footer-counter">{{ phrase('xt_lmo_usercount_x_in_y',{
-				'count': $xt_lmo_usercounted,
-				'time': $options.xt_lmo_time}) }}</span>
+				'count': $usercounted,
+				'time': $options.time}) }}</span>
             </div>
         </xf:if>
     </div>

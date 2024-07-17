@@ -1,0 +1,1 @@
+If enabled, the number of users online where counted and displayd in the widget footer.

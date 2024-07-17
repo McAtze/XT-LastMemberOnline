@@ -1,35 +1,49 @@
 <hr class="formRowSep" />
 
-<xf:numberboxrow name="options[xt_lmo_time]" value="{$options.xt_lmo_time}" min="1"
-                 label="{{ phrase('xt_lmo_time') }}" units="{{ phrase('units_hours') }}" />
+<xf:numberboxrow name="options[time]" value="{$options.time}" min="1"
+                 label="{{ phrase('xt_lmo_time') }}" units="{{ phrase('units_hours') }}" 
+				 explain="{{ phrase('xt_lmo_widget_time_explain') }}" />
 
-<xf:numberboxrow name="options[xt_lmo_limit]" value="{$options.xt_lmo_limit}" min="10"
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="10"
                  label="{{ phrase('maximum_usernames') }}"
-                 explain="{{ phrase('maximum_usernames_explain') }}" />
+                 explain="{{ phrase('xt_lmo_widget_max_usernames_explain') }}" />
 
 <xf:checkboxrow>
-    <xf:option name="options[xt_lmo_usercount]" value="1" selected="{$options.xt_lmo_usercount}"
-               label="{{ phrase('xt_lmo_usercount') }}" />
+    <xf:option name="options[usercount]" value="1" selected="{$options.usercount}"
+			   hint="{{ phrase('xt_lmo_widget_usercount_explain') }}">
+		{{ phrase('xt_lmo_usercount') }}
+	</xf:option>
 </xf:checkboxrow>
 
-<xf:radiorow name="options[xt_lmo_sort]" value="{{ $options.xt_lmo_sort ?: 'last_activity' }}"
+<xf:radiorow name="options[sort]" value="{{ $options.sort ?: 'last_activity' }}"
              label="{{ phrase('order_by') }}">
 
     <xf:option value="user_id"
                label="{{ phrase('user_id') }}" />
     <xf:option value="username"
-               label="{{ phrase('username') }}" />
+               label="{{ phrase('user_name') }}" />
     <xf:option value="register_date"
                label="{{ phrase('register_date') }}" />
     <xf:option value="last_activity"
                label="{{ phrase('last_activity') }}" />
 </xf:radiorow>
 
-<xf:radiorow name="options[xt_lmo_order]" value="{{ $options.xt_lmo_order ?: 'DESC' }}"
+<xf:radiorow name="options[order]" value="{{ $options.order ?: 'DESC' }}"
              label="{{ phrase('sort_by') }}">
 
     <xf:option value="DESC"
                label="{{ phrase('descending') }}" />
     <xf:option value="ASC"
                label="{{ phrase('ascending') }}" />
+</xf:radiorow>
+
+<xf:radiorow name="options[style]" value="{{ $options.style ?: 'name' }}"
+	label="{{ phrase('display_style') }}">
+
+	<xf:option value="name"
+		label="{{ phrase('user_name') }}"
+		hint="{{ phrase('xt_lmo_widget_display_username_explain') }}" />
+	<xf:option value="avatar"
+		label="{{ phrase('avatar') }}"
+		hint="{{ phrase('xt_lmo_widget_display_avatar_explain') }}" />
 </xf:radiorow>

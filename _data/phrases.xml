@@ -6,4 +6,9 @@
   <phrase title="xt_lmo_time" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[Online in the last]]></phrase>
   <phrase title="xt_lmo_usercount" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[Activate usercount]]></phrase>
   <phrase title="xt_lmo_usercount_x_in_y" version_id="100010" version_string="1.0.0 Alpha"><![CDATA[{count} users online in the last {time}]]></phrase>
+  <phrase title="xt_lmo_widget_display_avatar_explain" version_id="1000070" version_string="1.0.0" global_cache="1"><![CDATA[Users where displayed with there avatars]]></phrase>
+  <phrase title="xt_lmo_widget_display_username_explain" version_id="1000070" version_string="1.0.0" global_cache="1"><![CDATA[Users where displayed with there usernames]]></phrase>
+  <phrase title="xt_lmo_widget_max_usernames_explain" version_id="1000070" version_string="1.0.0" global_cache="1"><![CDATA[In order to prevent the 'LastMemberOnline' widget becoming too large on a busy board, you may limit the number of names before a '... and X more' link is added to terminate the list. A value of 0 disables the limit.]]></phrase>
+  <phrase title="xt_lmo_widget_time_explain" version_id="1000070" version_string="1.0.0"><![CDATA[Set the timeframe to count the users online. Default: 24 hours]]></phrase>
+  <phrase title="xt_lmo_widget_usercount_explain" version_id="1000070" version_string="1.0.0"><![CDATA[If enabled, the number of users online where counted and displayd in the widget footer.]]></phrase>
 </phrases>

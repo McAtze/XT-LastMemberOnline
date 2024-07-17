@@ -3,6 +3,7 @@
 namespace XT\LastMemberOnline\Widget;
 
 use XF;
+use XF\Finder\UserFinder;
 use XF\Http\Request;
 use XF\Widget\AbstractWidget;
 use XF\Widget\WidgetRenderer;
@@ -14,68 +15,50 @@ use XF\Widget\WidgetRenderer;
 class LastOnline extends AbstractWidget
 {
     protected $defaultOptions = [
-      'xt_lmo_time' => '24',
-      'xt_lmo_sort' => 'last_activity',
-      'xt_lmo_order' => 'DESC',
-      'xt_lmo_usercount' => '0',
-      'xt_lmo_limit' => '50'
+        'time' => '24',
+        'sort' => 'last_activity',
+        'order' => 'DESC',
+        'usercount' => '0',
+        'limit' => '50',
+        'style' => 'name'
     ];
 
     public function render(): false|WidgetRenderer
     {
-        if (!XF::visitor()->canViewMemberList())
+        $visitor = XF::visitor();
+        if (!$visitor->canViewMemberList())
         {
-            return false;
+            return '';
         }
 
         $options = $this->options;
-        $xt_lmo_time = $options['xt_lmo_time'];
-        $xt_lmo_sort = $options['xt_lmo_sort'];
-        $xt_lmo_order = $options['xt_lmo_order'];
-        $xt_lmo_usercount = $options['xt_lmo_usercount'];
-        $xt_lmo_limit = $options['xt_lmo_limit'];
+        $time = $options['time'];
+        $sort = $options['sort'];
+        $order = $options['order'];
+        $usercount = $options['usercount'];
+        $limit = $options['limit'];
+        $style = $options['style'];
 
-        if (!XF::visitor()->canBypassUserPrivacy())
+        $userFinder = $this->finder(UserFinder::class)
+            ->where(['last_activity', '>=', time() - 3600 * $time])
+            ->order($sort, $order)
+            ->limit($limit);
+
+        if (!$visitor->canBypassUserPrivacy())
         {
-            $users = XF::finder('XF:User')->where([
-                ['last_activity > ?' => time() - 3600 * $xt_lmo_time],
-                ['visible', '=', '1']
-            ])->order($xt_lmo_sort, $xt_lmo_order)->limit($xt_lmo_limit)->fetch();
-        }
-        else
-        {
-            $users = XF::finder('XF:User')->where([
-                ['last_activity', '>=', time() - 3600 * $xt_lmo_time]
-            ])->order($xt_lmo_sort, $xt_lmo_order)->limit($xt_lmo_limit)->fetch();
+            $userFinder->where(['visible', '=', '1']);
         }
 
-        $outputUsers = [];
+        $users = $userFinder->fetch();
 
-        foreach ($users as $user)
-        {
-            $outputUsers[] = [
-                'user_id' => $user['user_id'],
-                'username' => $user['username'],
-                'visible' => $user['visible'],
-                'display_style_group_id' => $user['display_style_group_id']
-            ];
-        }
-
-        if ($xt_lmo_usercount)
-        {
-            $xt_lmo_usercounted = count($users);
-            $xt_lmo_usercounted_more = $xt_lmo_usercounted - $xt_lmo_limit;
-        }
-        else
-        {
-            $xt_lmo_usercounted = '0';
-            $xt_lmo_usercounted_more = $xt_lmo_usercounted - $xt_lmo_limit;
-        }
+        $usercounted = $usercount ? count($users) : '0';
+        $usercounted_more = $usercounted - $limit;
 
         $viewParams = [
-            'outputUsers' => $outputUsers,
-            'xt_lmo_usercounted' => $xt_lmo_usercounted,
-            'xt_lmo_usercounted_more' => $xt_lmo_usercounted_more
+            'users' => $users,
+            'usercounted' => $usercounted,
+            'usercounted_more' => $usercounted_more,
+            'style' => $style,
         ];
 
         return $this->renderer('xt_lmo_widget', $viewParams);
@@ -84,11 +67,12 @@ class LastOnline extends AbstractWidget
     public function verifyOptions(Request $request, array &$options, &$error = null): true
     {
         $options = $request->filter([
-            'xt_lmo_time' => 'str',
-            'xt_lmo_sort' => 'str',
-            'xt_lmo_order' => 'str',
-            'xt_lmo_usercount' => 'bool',
-            'xt_lmo_limit' => 'str'
+            'time' => 'str',
+            'sort' => 'str',
+            'order' => 'str',
+            'usercount' => 'bool',
+            'limit' => 'str',
+            'style' => 'str'
         ]);
 
         return true;
