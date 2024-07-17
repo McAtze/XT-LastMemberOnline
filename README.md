@@ -4,3 +4,8 @@ Mit diesem AddOn kannst du dir ein Widget erstellen in dem die Benutzer angezeig
 
 ## Screenshots
 
+![WithAvatar](https://maxcdn.it-maku.com/git/lmo/withAvatar.png)
+
+![WithUsername](https://maxcdn.it-maku.com/git/lmo/withUsername.png)
+
+![WidgetOptions](https://maxcdn.it-maku.com/git/lmo/widgetOptions.png)
