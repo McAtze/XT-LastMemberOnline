@@ -23,7 +23,7 @@ class LastOnline extends AbstractWidget
         'style' => 'name'
     ];
 
-    public function render(): false|WidgetRenderer
+    public function render(): string|WidgetRenderer
     {
         $visitor = XF::visitor();
         if (!$visitor->canViewMemberList())
@@ -39,7 +39,7 @@ class LastOnline extends AbstractWidget
         $limit = $options['limit'];
         $style = $options['style'];
 
-        $userFinder = $this->finder(UserFinder::class)
+        $userFinder = $this->finder('XF:User')
             ->where(['last_activity', '>=', time() - 3600 * $time])
             ->order($sort, $order)
             ->limit($limit);
